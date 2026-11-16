@@ -1,0 +1,29 @@
+flowchart TD
+    U[User] --> P[Enter Music Preferences]
+    P --> UI[Streamlit App or CLI]
+
+    CSV[(data/songs.csv)] --> L[Song Loader]
+    L --> R[Recommendation Engine]
+    UI --> R
+
+    R --> S[Ranked Songs and Recommendation Scores]
+    S --> E[Reliability Evaluator]
+    P --> E
+
+    E --> Q[Calculate Match Quality]
+    Q --> D{Match Quality >= 60%?}
+
+    D -->|Yes| G[Good Match]
+    D -->|No| W[Weak Match Warning]
+
+    G --> OUT[Display Recommendations and Explanations]
+    W --> OUT
+
+    OUT --> H[User Reviews Results]
+    H -.-> P
+
+    E --> LOG[(moodtunes.log)]
+
+    T[Automated Tests] -.-> R
+    T -.-> E
+    T --> TR[Test Results]

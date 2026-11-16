@@ -10,6 +10,7 @@ You will implement the functions in recommender.py:
 """
 
 from .recommender import load_songs, recommend_songs
+from .evaluator import evaluate_recommendation
 
 
 def main() -> None:
@@ -68,9 +69,13 @@ def main() -> None:
         for i, rec in enumerate(recommendations, start=1):
             song, score, explanation = rec
 
+            evaluation = evaluate_recommendation(user_prefs, song)
+
             print(f"\n{i}. {song['title']} - {song['artist']}")
-            print(f"   Score: {score:.2f}/9.00")
+            print(f"   Recommendation Score: {score:.2f}/9.00")
+            print(f"   Match Quality: {evaluation['quality_score']}%")
             print(f"   Reasons: {explanation}")
+            print(f"   Evaluation: {evaluation['message']}")
 
         print("\n" + "=" * 50)
 
