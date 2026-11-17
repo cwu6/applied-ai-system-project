@@ -3,9 +3,9 @@ from math import isfinite
 import logging
 from pathlib import Path
 
-LOG_PATH = Path(__file__).resolve().parent.parent / "moodtunes.log"
+LOG_PATH = Path(__file__).resolve().parent.parent / "vibefinder.log"
 
-logger = logging.getLogger("moodtunes")
+logger = logging.getLogger("vibefinder")
 logger.setLevel(logging.INFO)
 
 if not logger.handlers:

@@ -12,12 +12,12 @@ songs = load_songs(str(DATA_PATH))
 
 
 st.set_page_config(
-    page_title="MoodTunes 2.0",
+    page_title="VibeFinder 2.0",
     page_icon="🎵",
     layout="wide"
 )
 
-st.title("🎵 MoodTunes 2.0")
+st.title("🎵 VibeFinder 2.0")
 st.write(
     "Discover music based on your preferences. "
     "Each recommendation is also evaluated for match quality."
