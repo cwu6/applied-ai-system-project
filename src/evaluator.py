@@ -37,8 +37,13 @@ def evaluate_recommendation(
         if field not in user_prefs or field not in song:
             raise ValueError(f"Missing required field: {field}")
 
-    if not 0 <= threshold <= 100:
-        raise ValueError("Threshold must be between 0 and 100.")
+    if (
+        isinstance(threshold, bool)
+        or not isinstance(threshold, (int, float))
+        or not isfinite(threshold)
+        or not 0 <= threshold <= 100
+    ):
+        raise ValueError("Threshold must be a number between 0 and 100.")
 
     numeric_fields = [
         "energy", "valence", "tempo_bpm",

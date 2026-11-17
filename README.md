@@ -10,7 +10,7 @@ My original project, Music Recommender Simulation, was a command line music reco
 
 ## Architecture Overview
 - User Interface: Users enter their music preferences through the Streamlit app or command line interface
-- Song Loader: The system reads song information from data/song.csv
+- Song Loader: The system reads song information from data/songs.csv
 - Recommendation Engine: The recommender compares each song with the user's preferences and ranks song uisng a weighted scoring algorithm
 - Reliability Evaluator: Each recommendatio recieves a separate matching score from 0-100%. If the recommendation recieves below 60%, it will recieve a weak match warning
 - Logging: The evaluation results are recorded in vibefinder.log
@@ -23,29 +23,43 @@ My original project, Music Recommender Simulation, was a command line music reco
 ## Setup Instructions
 
 1. Clone the repository:
+```bash
 git clone https://github.com/cwu6/applied-ai-system-project.git
 cd applied-ai-system-project
+```
 
 2. Create and activate a virtual environment
 Mac:
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
+```
 
 Windows:
+```bash
 python -m venv .venv
 .venv\Scripts\activate
+```
 
-3. Install dependencies:
+3. Install dependencies
+```bash
 pip install -r requirements.txt
+```
 
 4. Run the command-line application
+```bash
 python -m src.main
+```
 
 5. Run the Streamlit application
+```bash
 streamlit run src/app.py
+```
 
 6. Run the automated tests
+```bash
 python -m pytest
+```
 
 ---
 
@@ -54,6 +68,7 @@ The example show different user preferences. The recommendation score is out of 
 
 Example 1: High Energy Pop
 - Input:
+```text
 Genre: pop
 Mood: happy
 Energy: 0.90
@@ -61,11 +76,15 @@ Valence: 0.90
 Tempo: 130 BPM
 Danceability: 0.90
 Acousticness: 0.10
+```
 
 - Command:
+```bash
 python -m src.main
+```
 
 - Output:
+```text
 High-Energy Pop
 
 1. Sunrise City - Neon Echo
@@ -87,10 +106,12 @@ High-Energy Pop
 5. Afterglow Avenue - Noah Blue
    Recommendation Score: 5.20/9.00
    Matching Score: 67.86%
+```
 
 
 Example 2: Chill Lofi
 - Input: 
+```text
 Genre: lofi
 Mood: chill
 Energy: 0.40
@@ -98,11 +119,15 @@ Valence: 0.60
 Tempo: 80 BPM
 Danceability: 0.60
 Acousticness: 0.75
+```
 
 - Command:
+```bash
 python -m src.main
+```
 
 - Output:
+```text
 Chill Lofi
 
 1. Midnight Coding - LoRoom
@@ -124,9 +149,11 @@ Chill Lofi
 5. Autumn Letters - Willow Creek
    Recommendation Score: 5.22/9.00
    Matching Score: 68.00%
+```
 
 Example 3: Conflicting Preferences. This specific example shows the role of the reliability evaluator. All five recommendations are ranked, but each recieves a weak match warning because the matching score is below 60%.
 - Input:
+```text
 Genre: lofi
 Mood: intense
 Energy: 0.95
@@ -134,11 +161,15 @@ Valence: 0.10
 Tempo: 150 BPM
 Danceability: 0.10
 Acousticness: 0.95
+```
 
 - Command:
+```bash
 python -m src.main
+```
 
 - Output:
+```text
 Conflicting Preferences
 
 1. Focus Flow - LoRoom
@@ -165,6 +196,7 @@ Conflicting Preferences
    Recommendation Score: 4.53/9.00
    Matching Score: 50.57%
    Evaluation: Weak match
+```
 
 ---
 
@@ -185,6 +217,7 @@ What Worked:
 - The system was able to generate explanations describing why particular songs were recommended
 -The automated tests passed, confirming that the recommendation functionality behaved as expected
 - The system handled different preference profiles, including high-energy pop, chill lofi, and intense rock, and produced different recommendations depending on the selected preferences
+- I also tested the Streamlit application by changing the music preferences and clicking "Find My Music." The app correctly displayed the ranked recommendations, matching scores, explanations, and weak match warnings for recommendations below the 60% threshold.
 
 What Didn't Work as Expected / Limitations:
 - The small dataset sometimes limited the variety of recommendations available, especially for less common genres or a combination of preferences
@@ -198,6 +231,50 @@ Through testing, I learned how different song features can influence recommendat
 ---
 
 ## Reflection
-This project taught me that assistance with AI is more than simply giving a computer information and expecting it to give you the right answer. I learned that AI can use data, patterns, and different instructions to make decisions and generate results. Through VibeFinder 1.0 and VibeFinder 2.0, I gained a better understanding of how recommendation systems use information about user preferences to determine which results are most relevant. I also learned that AI decisions are influenced by the information and rules that I gave to guide it. AI does not automatically produce perfect results. Its effectiveness depends on the type of data it receives and the quality of it and how well it addresses these problem. Additionally, testing different inputs and examining the results helped me understand the importance of questioning AI outputs rather than assuming they are always correct. Overall, this project gave me a better understanding of how AI can be applied to real world problems and scenarios, how data influences AI decisions, and why individual thinking is still important when developing with AI.
+This project taught me that assistance with AI is more than simply giving a computer information and expecting it to give you the right answer. I learned that AI can use data, patterns, and different instructions to make decisions and generate results. Through my original music recommender and newly upgraded VibeFinder 2.0, I gained a better understanding of how recommendation systems use information about user preferences to determine which results are most relevant. I also learned that AI decisions are influenced by the information and rules that I gave to guide it. AI does not automatically produce perfect results. Its effectiveness depends on the type of data it receives and the quality of it and how well it addresses these problem. Additionally, testing different inputs and examining the results helped me understand the importance of questioning AI outputs rather than assuming they are always correct. Overall, this project gave me a better understanding of how AI can be applied to real world problems and scenarios, how data influences AI decisions, and why individual thinking is still important when developing with AI.
+---
+
+## Reliability and Evaluation
+VibeFinder 2.0 uses automated testing, matching scoring, input validation, and logging to evaluate the reliability of its recommendations
+
+- Automated Testing
+I tested the project using:
+```bash
+python -m pytest
+```
+Example:
+```text
+====================================== test session starts =======================================
+platform darwin -- Python 3.14.7, pytest-9.2.0, pluggy-1.7.0
+rootdir: /Users/chlxe/applied-ai-system-final/applied-ai-system-final
+plugins: anyio-4.16.0
+collected 7 items                                                                                
+
+tests/test_evaluator.py .....                                                              [ 71%]
+tests/test_recommender.py ..                                                               [100%]
+
+======================================= 7 passed in 0.01s ========================================
+```
+
+The project has 7 automated tests and all 7 passed. The tests check:
+- Whether the original recommendation system correctly loads songs and generates recommendations
+- Whether strong recommendations receive high matching scores
+- Whether weak recommendations receive lower matching scores (threshold of 60%)
+- Whether matching scores stay within the expected range of 0–100%
+- Whether invalid inputs, such as an energy value that is out of the range, are handled correctly
+- Whether invalid execution threholds are handled correctly
+
+- Matching Scoring:
+The evaluator calculates a matching percentage from 0–100% based on how closely a recommended song matches the user's preferences across seven features: genre, mood, energy, tempo, valence, danceability, and acousticness.
+
+- Weak Match Warnings:
+VibeFinder 2.0 uses a 60% threshold. Recommendations below 60% received a warning  that said that it may be a weak match. This helps users recognize when a song does not closely fit their preferences.
+
+- Input Validation and Logging:
+The evaluator checks user inputs and rejects invalid values, such as numerical preferences that may be out of the range or threshold. It also records successful evaluations in a log file, allowing evaluation results to be reviewed later on.
+
+- Summary:
+All 7 automated tests passed. The tests confirmed that the recommender and evaluator work for the tested cases, including strong matches, weak matches, and invalid inputs. Matching scoring and the 60% warning threshold provided an additional way to seek out the recommendations that may not fit a user's preferences. Furthermore, logging provides a record of the successful evaluations.
+
 ---
 
