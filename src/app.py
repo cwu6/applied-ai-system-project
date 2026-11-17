@@ -20,7 +20,7 @@ st.set_page_config(
 st.title("🎵 VibeFinder 2.0")
 st.write(
     "Discover music based on your preferences. "
-    "Each recommendation is also evaluated for match quality."
+    "Each recommendation is also evaluated for matching score."
 )
 
 st.sidebar.header("Your Music Preferences")
@@ -78,7 +78,7 @@ if st.button("Find My Music", type="primary"):
 
             with col2:
                 st.metric(
-                    "Match Quality",
+                    "Matching Score",
                     f"{evaluation['quality_score']}%"
                 )
 

@@ -73,7 +73,7 @@ def main() -> None:
 
             print(f"\n{i}. {song['title']} - {song['artist']}")
             print(f"   Recommendation Score: {score:.2f}/9.00")
-            print(f"   Match Quality: {evaluation['quality_score']}%")
+            print(f"   Matching Score: {evaluation['quality_score']}%")
             print(f"   Reasons: {explanation}")
             print(f"   Evaluation: {evaluation['message']}")
 

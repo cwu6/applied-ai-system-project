@@ -70,23 +70,23 @@ High-Energy Pop
 
 1. Sunrise City - Neon Echo
    Recommendation Score: 8.57/9.00
-   Match Quality: 94.43%
+   Matching Score: 94.43%
 
 2. Gym Hero - Max Pulse
    Recommendation Score: 7.25/9.00
-   Match Quality: 82.29%
+   Matching Score: 82.29%
 
 3. Golden Horizon - Sol Mariposa
    Recommendation Score: 6.83/9.00
-   Match Quality: 83.71%
+   Matching Score: 83.71%
 
 4. Rooftop Lights - Indigo Parade
    Recommendation Score: 6.34/9.00
-   Match Quality: 77.29%
+   Matching Score: 77.29%
 
 5. Afterglow Avenue - Noah Blue
    Recommendation Score: 5.20/9.00
-   Match Quality: 67.86%
+   Matching Score: 67.86%
 
 
 Example 2: Chill Lofi
@@ -107,23 +107,23 @@ Chill Lofi
 
 1. Midnight Coding - LoRoom
    Recommendation Score: 8.86/9.00
-   Match Quality: 98.14%
+   Matching Score: 98.14%
 
 2. Library Rain - Paper Lanterns
    Recommendation Score: 8.76/9.00
-   Match Quality: 96.86%
+   Matching Score: 96.86%
 
 3. Focus Flow - LoRoom
    Recommendation Score: 7.46/9.00
-   Match Quality: 85.14%
+   Matching Score: 85.14%
 
 4. Spacewalk Thoughts - Orbit Bloom
    Recommendation Score: 6.31/9.00
-   Match Quality: 76.71%
+   Matching Score: 76.71%
 
 5. Autumn Letters - Willow Creek
    Recommendation Score: 5.22/9.00
-   Match Quality: 68.00%
+   Matching Score: 68.00%
 
 Example 3: Conflicting Preferences. This specific example shows the role of the reliability evaluator. All five recommendations are ranked, but each recieves a weak match warning because the matching score is below 60%.
 - Input:
@@ -143,27 +143,27 @@ Conflicting Preferences
 
 1. Focus Flow - LoRoom
    Recommendation Score: 5.16/9.00
-   Match Quality: 56.29%
+   Matching Score: 56.29%
    Evaluation: Weak match
 
 2. Storm Runner - Voltline
    Recommendation Score: 5.14/9.00
-   Match Quality: 59.43%
+   Matching Score: 59.43%
    Evaluation: Weak match
 
 3. Library Rain - Paper Lanterns
    Recommendation Score: 5.14/9.00
-   Match Quality: 56.29%
+   Matching Score: 56.29%
    Evaluation: Weak match
 
 4. Midnight Coding - LoRoom
    Recommendation Score: 5.12/9.00
-   Match Quality: 55.57%
+   Matching Score: 55.57%
    Evaluation: Weak match
 
 5. Gym Hero - Max Pulse
    Recommendation Score: 4.53/9.00
-   Match Quality: 50.57%
+   Matching Score: 50.57%
    Evaluation: Weak match
 
 ---

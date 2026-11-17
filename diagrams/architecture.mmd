@@ -10,8 +10,8 @@ flowchart TD
     S --> E[Reliability Evaluator]
     P --> E
 
-    E --> Q[Calculate Match Quality]
-    Q --> D{Match Quality >= 60%?}
+    E --> Q[Calculate Matching Score]
+    Q --> D{Matching Score >= 60%?}
 
     D -->|Yes| G[Good Match]
     D -->|No| W[Weak Match Warning]
